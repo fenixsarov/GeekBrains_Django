@@ -1,3 +1,75 @@
-h1 {
-    color: green;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('fonts/Roboto/Roboto-Regular.ttf');
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('fonts/Roboto/Roboto-Black.ttf');
+
+    font-weight: 900;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #f8f8f8;
+}
+
+
+.header_box {
+    height: 100px;
+    background-color: #909090;
+}
+
+.header_box p {
+    text-align: center;
+    padding: 30px 0;
+    font-family: "Roboto";
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.about_me {
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.menu ul {
+
+    margin-left: 46%;
+}
+
+.menu > ul > li {
+    display: inline-block;
+    background-color: #808080;
+    border-radius: 5px;
+}
+
+.menu > ul > li:hover {
+    transform: scale(1.05);
+}
+
+.menu > ul > li > a {
+
+    text-decoration: none;
+    color: black;
 }
