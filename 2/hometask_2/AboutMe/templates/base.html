@@ -1,12 +1,14 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="ru-en">
 <head>
     <meta charset="utf-8">
-    <title>About Me</title>
-    {% block css %}
-    {% load staticfiles %}
+    <title>
+        {% block title %}
+            AboutMe
+        {% endblock %}
+    </title>
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
-    {% endblock %}
 </head>
 <body>
     <div id="main-block">
@@ -16,30 +18,21 @@
                 <h1>{{surname}} {{name|title}}</h1>
                 <div id="main-nav-menu">
                     <ul id="main-nav">
-                        <li class="current"><a href="">ОБО МНЕ</a></li>
-                        <li><a href="education">Учёба</a></li>
-                        <li><a href="job">Работа</a></li>
+                        <li><a href="{% url 'index' %}">ОБО МНЕ</a></li>
+                        <li class="current"><a href="{% url 'education' %}">Учёба</a></li>
+                        <li ><a href="{% url 'job' %}">Работа</a></li>
                     </ul>
                     <div class="clear"></div>
                 </div>
             </header>
-<!--             <section id="content">
-                <div id="img_about"></div>
-                <div class="clear"></div>
-                <div id="stripe"></div>
-
-                <div id="about" class="clearfix">
-                    <div id="img-me"></div>
-                    <h2>Немного о себе</h2>
-                    <p> Меня зовут Кравец Дмитрий, работаю в данный момент C++ программистом. Основное направление деятельности сейчас - это разработка интерфесой программных комплексов. Нравится программировать на Python, потому решил освоить фул-стек разработку веб-приложений на GeekBrains.<br> В свободное время увлекаюсь настольным теннисом и покатушками на велосипеде.</p>
-                </div>
-            </section> -->
-
-
+            <section id="content">
+                {% block content %}
+                {% endblock %}
+            </section>
         </div>
     </main>
-    <footer>
-        <section id="footer-innertube" class="clearfix">
+    <footer class="clearfix">
+        <section id="footer-innertube" >
             <div id="footer-address">
                 <h5>Адрес</h5>
                 <ul>
@@ -64,9 +57,9 @@
             </div>
             <div class="clear"></div>
             <ul id="footer-nav">
-                <li>ОБО МНЕ</li>
-                <li><a href="education">Учёба</a></li>
-                <li><a href="job">Работа</a></li>
+                <li><a href="{% url 'index' %}">ОБО МНЕ</a></li>
+                <li><a href="{% url 'education' %}">УЧЁБА</a></li>
+                <li><a href="{% url 'job' %}">РАБОТА</a></li>
             </ul>
             <div id="to-top"><a href="#"></a></div>
             <div class="clear"></div>

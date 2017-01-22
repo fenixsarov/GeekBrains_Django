@@ -19,7 +19,7 @@ from mainapp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', main),
-    url(r'^job/$', job),
-    url(r'^education/$', education),
+    url(r'^$', main, name='index'),
+    url(r'^job/$', job, name='job'),
+    url(r'^education/$', education, name='education'),
 ]
