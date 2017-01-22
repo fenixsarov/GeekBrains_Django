@@ -18,9 +18,9 @@
                 <h1>{{surname}} {{name|title}}</h1>
                 <div id="main-nav-menu">
                     <ul id="main-nav">
-                        <li><a href="{% url 'index' %}">ОБО МНЕ</a></li>
-                        <li class="current"><a href="{% url 'education' %}">Учёба</a></li>
-                        <li ><a href="{% url 'job' %}">Работа</a></li>
+                        <li class="{% if page == "index" %}current{% endif %}" ><a href="{% url 'index' %}">ОБО МНЕ</a></li>
+                        <li class="{% if page == "education" %}current{% endif %}" ><a href="{% url 'education' %}">Учёба</a></li>
+                        <li class="{% if page == "job" %}current{% endif %}" ><a href="{% url 'job' %}">Работа</a></li>
                     </ul>
                     <div class="clear"></div>
                 </div>

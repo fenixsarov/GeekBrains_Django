@@ -6,12 +6,12 @@
     <section id="jobs">
         <div class="clearfix"><h2>Где работал</h2></div>
         <!-- пока не понял, как подставить номер итерации вместо 0, чтобы запросить нужный элемент -->
-        {% for work in place_of_work%}
+        {% for work in work_places%}
         <div class="working-box">
-            <h3>{{ work }}</h3>
-            <h5>{{ date_of_work.0 }}</h5>
+            <h3>{{ work.place }}</h3>
+            <h5>{{ work.date }}</h5>
             <p class="work-decription"> <br>
-            {{ desc_of_work.0 }}
+            {{ work.desc }}
             </p>
         </div>
         {% endfor %}

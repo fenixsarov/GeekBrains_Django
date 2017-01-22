@@ -6,23 +6,18 @@
     <section id="education">
 
         <div class="clearfix"><h2>Здесь учился</h2></div>
+        {% for ed in education_places %}
         <div class="education-box">
-            <h3>СарФТИ НИЯУ МИФИ</h3>
-            <h5>2007-2012 гг.</h5>
+            <h3>{{ ed.place }}</h3>
+            <h5>{{ ed.date }}</h5>
             <ul>
                 <p>
-                Закончил институт по специальности &laquo;Информационные технологии и системы&raquo;</li>
+                {{ ed.desc }}
                 </p>
             </ul>
         </div>
-        <div class="education-box">
-            <h3>GeekBrains</h3>
-            <h5>2016-2017 гг.</h5>
-            <p>
-                В данный момент прожу курсы по специальности Python-программист, для того
-                чтобы освоить процесс фул-стек разработки веб-приложений.
-            </p>
-        </div>
+        {% endfor %}
+
         <div class="clear"></div>
     </section>
     {% endblock %}
