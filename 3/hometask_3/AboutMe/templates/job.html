@@ -8,7 +8,13 @@
         {% for work in work_places %}
             <div class="working-box">
                 <h3>{{ work.organization }}</h3>
-                <h5>{{ work.start_date.year }} - {{ work.end_date.year }}</h5>
+                {# Специально в базу внес день начало и окончания текущего места работы одинаковым, чтобы вот так проверить #}
+                <h5>{{ work.start_date.year }} -
+                    {% if work.start_date != work.end_date %}
+                    {{ work.end_date.year }}
+                        {% else %} по сей день
+                    {% endif %}
+                </h5>
                 <p class="work-decription"><br>
                     {{ work.duties }}
                 </p>
