@@ -10,8 +10,12 @@
 
         <div id="about" class="clearfix">
             <div id="img-me"></div>
+            {% for d in desc %}
             <h2>Немного о себе</h2>
-            <p> {{ desc }}</p>
+            <p> {{ d.description }}</p>
+            <h3>Хобби и увлечения</h3>
+            <p> {{ d.hobby }}</p>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
