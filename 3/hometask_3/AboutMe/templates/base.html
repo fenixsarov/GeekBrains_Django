@@ -1,0 +1,74 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="ru-en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+            AboutMe
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+</head>
+<body>
+<div id="main-block">
+    <main id="page">
+        <div class="innertube">
+            <header>
+                <h1>{{ surname }} {{ name|title }}</h1>
+                <div id="main-nav-menu">
+                    <ul id="main-nav">
+                        <li class="{% if page == "index" %}current{% endif %}"><a href="{% url 'index' %}">ОБО МНЕ</a>
+                        </li>
+                        <li class="{% if page == "education" %}current{% endif %}"><a
+                                href="{% url 'education' %}">Учёба</a></li>
+                        <li class="{% if page == "job" %}current{% endif %}"><a href="{% url 'job' %}">Работа</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </header>
+            <section id="content">
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+    </main>
+    <footer class="clearfix">
+        <section id="footer-innertube">
+            <div id="footer-address">
+                <h5>Адрес</h5>
+                <ul>
+                    <li>г.Саров, Нижегородская область</li>
+                    <li>ул. Юности</li>
+                </ul>
+            </div>
+            <div id="footer-contact">
+                <h5>Контакты</h5>
+                <ul>
+                    <li>+7-950-61х-хх-хх</li>
+                    <li><a href="mailto:fenixsarov@gmail.com">e-mail</a></li>
+                </ul>
+            </div>
+            <div id="footer-socials">
+                <h5>Я в сети</h5>
+                <ul>
+                    <li id="vk-ico"><a href="http://vk.com/fenixsarov" target="_blank"></a></li>
+                    <li id="facebook-ico"><a href="https://www.facebook.com/dmitry.kravets.9" target="_blank"></a></li>
+                    <li id="twitter-ico"><a href="https://twitter.com/fenixsarov" target="_blank"></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <ul id="footer-nav">
+                <li><a href="{% url 'index' %}">ОБО МНЕ</a></li>
+                <li><a href="{% url 'education' %}">УЧЁБА</a></li>
+                <li><a href="{% url 'job' %}">РАБОТА</a></li>
+            </ul>
+            <div id="to-top"><a href="#"></a></div>
+            <div class="clear"></div>
+            <p>&copy; 2017 Кравец Дмитрий. Идеи по дизайну сайта подсказал всезнающий Google </p>
+            <div class="clear"></div>
+        </section>
+    </footer>
+</div>
+</body>
+</html>
