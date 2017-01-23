@@ -1,0 +1,344 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    background: #6f8288;
+    line-height: 1;
+    color:#6a6a6a;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a img {
+    border: none;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 22px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+    font-family:'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
+}
+
+/* ///////////////////// main ///////////////////////// */
+
+main#page {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+
+}
+
+.innertube {
+    padding: 30px 80px 0 80px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+#content {
+    background: #fff;
+}
+
+header {
+    margin: 0 0 116px 0;
+    position: relative;
+}
+
+/* //////////// Menu navigation ///////////// */
+
+#main-nav-menu {
+    background-image: url("img/main-nav-bg.png");
+    width: 1040px;
+    height: 76px;
+    position: absolute;
+    left: -100px;
+    margin: 20px 0 0 0;
+}
+
+#main-nav {
+    float: left;
+    font-size: 22px;
+    font-family: 'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
+    margin: 13px 0 0 81px;
+}
+
+#main-nav li {
+    float:  left;
+    padding: 0 0 0 10px;
+}
+
+#main-nav li a {
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    padding: 0 10px;
+}
+
+#main-nav li a:hover {
+    color: #545454;
+    transform: scale(1.05);
+}
+#main-nav li.current a,
+#main-nav li.current a:hover {
+    color:  #949494;
+    transform: scale(1.0);
+}
+
+/*/////////////////// content ////////////////////// */
+
+#img_about {
+    float: left;
+    width: 300px;
+    height: 59px/* 315px */;
+    margin: 0 40px 0 0;
+}
+
+#stripe {
+    background: url("img/stripe.png") repeat-x;
+    height: 14px;
+    width: 100%;
+    margin: 0 0 40px 0;
+}
+
+#img_about {
+    width: 355px;
+    height: 59px;
+    background-image: url("img/aboutme.png");
+}
+
+#about #img-me {
+    float: left;
+    height: 400px;
+    width: 300px;
+    margin: 0 40px 40px 0;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    background-image: url("img/me.jpg");
+}
+
+#about p {
+    padding-top: 20px;
+    float: left;
+    width: 500px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/*/////////////////// job ////////////////////// */
+#jobs {
+    padding-bottom: 20px;
+}
+
+#jobs h2 {
+    float: left;
+    line-height: 40px;
+    border-bottom: 2px solid #000;
+    color: #000;
+    margin: 0 0 20px 0;
+}
+
+.working-box {
+    display: block;
+    float: left;
+    width: 250px;
+    height: 200px;
+    margin: 0 20px 40px 0;
+}
+
+.working-box h3 {
+    margin-bottom: 15px;
+}
+
+.working-box h5 {
+    margin-bottom: 5px;
+}
+
+.working-box p {
+    line-height: 16px;
+    font-size: 12px;
+}
+
+/*/////////////////// education ////////////////////// */
+#education {
+    padding-bottom: 20px;
+}
+
+#education h2 {
+    float: left;
+    line-height: 40px;
+    border-bottom: 2px solid #000;
+    color: #000;
+    margin: 0 0 20px 0;
+}
+
+.education-box {
+    display: block;
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin: 0 20px 40px 0;
+}
+
+.education-box h3 {
+    margin-bottom: 15px;
+}
+
+.education-box h5 {
+    margin-bottom: 5px;
+}
+
+
+.education-box p {
+    line-height: 16px;
+    font-size: 12px;
+}
+
+/*/////////////////// footer ////////////////////// */
+footer {
+
+    background: #000;
+    width: 1000px;
+    margin: 0 auto;
+    /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3); */
+}
+
+#footer-innertube {
+    padding: 40px 80px 20px 80px;
+}
+
+footer h5 {
+    margin-bottom: 20px;
+}
+
+#footer-address,
+#footer-contact,
+#footer-socials {
+    float: left;
+    width: 230px;
+    margin: 0 20px 0 0;
+    color: #fff;
+}
+
+#footer-address ul li,
+#footer-contact ul li {
+    margin-bottom: 5px;
+}
+
+
+#footer-address ul li a,
+#footer-contact ul li a,
+#footer-address ul li a:hover
+ {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer-socials ul li {
+    float: left;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+#footer-socials #vk-ico {
+    background-image: url("img/vk.png");
+}
+
+#footer-socials #facebook-ico {
+    background-image: url("img/facebook.png");
+}
+
+#footer-socials #twitter-ico {
+    background-image: url("img/twitter.png");
+}
+
+#footer-socials ul li:hover,
+footer #to-top:hover {
+    transform: scale(1.05);
+    opacity: 0.5;
+}
+
+#footer-nav {
+    font-size: 18px;
+    font-family: 'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
+    border-top: 1px dotted #aaa;
+    margin: 20px 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+#footer-nav li {
+    float: left;
+    padding: 0 30px 0 0;
+}
+
+#footer-nav li a {
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+
+#footer-nav li a:hover,
+#footer-contact ul li a:hover {
+    color: #545454;
+    transform: scale(1.05);
+}
+
+#footer-innertube p {
+    margin: 10px 0 0 0;
+}
+
+footer #to-top {
+    float: right;
+    width: 22px;
+    height: 22px;
+    background-image: url("img/top.png");
+}
+

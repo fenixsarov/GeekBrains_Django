@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    Index | {{ block.super }}
+{% endblock %}
+{% block content %}
+    <section id="content">
+        <div id="img_about"></div>
+        <div class="clear"></div>
+        <div id="stripe"></div>
+
+        <div id="about" class="clearfix">
+            <div id="img-me"></div>
+            <h2>Немного о себе</h2>
+            <p> {{ desc }}</p>
+        </div>
+    </section>
+{% endblock %}

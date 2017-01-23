@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    Education | {{ block.super }}
+{% endblock %}
+{% block content %}
+    <section id="education">
+
+        <div class="clearfix"><h2>Здесь учился</h2></div>
+        {% for ed in education_places %}
+            <div class="education-box">
+                <h3>{{ ed.organization }}</h3>
+                <h5>{{ ed.start_date.year }} - {{ ed.end_date.year }}</h5>
+                <ul>
+                    <p>
+                        {{ ed.description }}
+                    </p>
+                </ul>
+            </div>
+        {% endfor %}
+
+        <div class="clear"></div>
+    </section>
+{% endblock %}

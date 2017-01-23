@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    Work Expirience | {{ block.super }}
+{% endblock %}
+{% block content %}
+    <section id="jobs">
+        <div class="clearfix"><h2>Где работал</h2></div>
+        {% for work in work_places %}
+            <div class="working-box">
+                <h3>{{ work.organization }}</h3>
+                <h5>Работал месяцев: {{ work.period }}</h5>
+                <p class="work-decription"><br>
+                    {{ work.duties }}
+                </p>
+            </div>
+        {% endfor %}
+        <div class="clear"></div>
+    </section>
+{% endblock %}
