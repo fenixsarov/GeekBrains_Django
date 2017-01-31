@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Страница авторизации
+{% endblock %}
+{% if not user.is_authenticated %}
+    {% if errors %}
+            <p class="error">Неверный логин и/или пароль</p>
+    {% endif %}
+    {% block content %}
+        <form method="post" action="/user/login/">
+            {% csrf_token %}
+            <input type="text" name="login" value="{{ username }}" placeholder="Логин" required>
+            <input type="password" name="password" value="" placeholder="Пароль" required>
+            <button type="submit" class="submit-button">Войти</button>
+        </form>
+    {% endblock %}
+{% else %}
+    {{ user.username }}
+    <a href="{% url '/user/logout/'  %}">Выйти</a>
+{% endif %}

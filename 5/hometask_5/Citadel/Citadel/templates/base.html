@@ -1,0 +1,50 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        CITADEL
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <main id="page" class="innertube">
+        <header>
+            <h1>Клуб-магазин &quot;Цитадель&quot; </h1>
+            <div class="h-line"></div>
+            <div id="main-nav-menu">
+                <ul id="main-nav">
+                    <li class="{% if page == "index" %}current{% endif %}"><a href="{% url 'index' %}">Главная</a></li>
+                    <li class="{% if page == "catalog" %}current{% endif %}"><a href="">Каталог</a></li>
+                    <li class="{% if page == "about" %}current{% endif %}"><a href="">О нас</a></li>
+                    <li class="{% if page == "login_page" %}current{% endif %}"><a href="{% url 'login_page' %}">Войти</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="h-line-invert"></div>
+        </header>
+        <section id="content" class="clearfix">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <div class="clear"></div>
+        {% if errors %}
+            <p class="error">Неверный логин и/или пароль</p>
+        {% endif %}
+
+    </main>
+
+    <footer class="clearfix">
+        <p id="copy">
+            Священная Инквизиция пристально следит за твоими деяниями <br>
+            &copy;2017 Все права защищены. Кравец Дмитрий
+        </p>
+    </footer>
+
+
+
+</body>
+</html>
