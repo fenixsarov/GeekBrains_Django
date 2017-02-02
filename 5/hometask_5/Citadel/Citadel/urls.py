@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^$', main, name='index'),
     url(r'^user/login_page/$', login_page, name='login_page'),
     url(r'^user/login/$', login),
-    url(r'^user/logout/$', logout, name='logout')
+    url(r'^user/logout/$', logout, name='logout'),
 ]

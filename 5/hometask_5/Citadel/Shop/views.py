@@ -4,11 +4,11 @@ from django.http import Http404
 
 def main(request):
     page = 'index'
-    return render_to_response("index.html", {"page": page})
+    return render(request, "index.html", {"page": page})
 
 def login_page(request):
     page = 'login_page'
-    return render_to_response("login.html", {"page": page})
+    return render(request, "login.html", {"page": page})
 
 def login(request):
 
@@ -19,6 +19,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
+
             return HttpResponseRedirect("/")
         else:
             return render(request, 'index.html', {'username': username, 'errors': True})
