@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    Админка
+{% endblock %}
+{% block content %}
+    {% if req_errors %}
+        <ul>
+        {% for key, value in reg_errors.items %}
+            <li>{{ key }} - {{ value }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <form id="reg-form" method="post" role="form" action="/user/registration/">
+    {% csrf_token %}
+    <p><input type="text" name="name" placeholder="Введите имя" required></p>
+    <p><input type="email" name="email" placeholder="Введите email" required></p>
+    <p><input type="email" name="confirm_email" placeholder="Повторите email" required></p>
+    <p><input type="password" name="password" placeholder="Введите пароль" required></p>
+    <p><input type="password" name="confirm_password" placeholder="Повторите пароль" required></p>
+    <button type="submit" name="submit">Отправить</button>
+    </form>
+{% endblock %}

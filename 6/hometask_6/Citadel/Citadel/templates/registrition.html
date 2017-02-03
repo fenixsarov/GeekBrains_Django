@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+    Админка на Django-формах
+{% endblock %}
+{% block content %}
+    <form method="post" role="form" action="/user/registration-form/">
+    {% csrf_token %}
+    <table>
+        {% for field in form %}
+            <tr>
+                <td>
+                    {{ field.label_tag }}
+                </td>
+                <td>
+                    <div>
+                        <ul>
+                            {% for error in field.errors %}
+                                <li class="error">error: {{ error }}</li>
+                            {% endfor %}
+                            {{ field }}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="Создать пользователя">
+    </form>
+{% endblock %}
