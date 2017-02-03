@@ -19,20 +19,20 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
-@font-face {
-    font-family: "b52";
-    src: url("fonts/b52.ttf");
-    font-weight: 400;
-    font-style: normal;
-    /*text-rendering: optimizeLegibility;*/
-}
+/*@font-face {*/
+    /*font-family: "B52";*/
+    /*src: url("static/fonts/b52.ttf");*/
+    /*font-weight: 400;*/
+    /*font-style: normal;*/
+    /*!*text-rendering: optimizeLegibility;*!*/
+/*}*/
 
 body {
     background: #a5a5a5;
     line-height: 1;
 
     color:#3a3a3a;
-    font-family: "b52", Arial, Helvetica, sans-serif;
+    font-family: "Podkova", Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: normal;
 }
@@ -62,8 +62,8 @@ h5 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility;
-    font-family: "b52", Arial, Helvetica, sans-serif;
+    font-family: "Russo One", sans-serif;
+    /*text-rendering: optimizeLegibility;*/
 }
 
 .clear {
@@ -100,6 +100,7 @@ header {
 header h1 {
     margin-left: 205px;
     padding-top: 150px;
+    font-family: "Russo One", Arial, sans-serif;
 }
 
 .h-line {
@@ -126,8 +127,8 @@ header h1 {
 
 #main-nav {
     float: left;
-    font-size: 22px;
-    font-family: "b52", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-family: "Roboto Slab", Arial, serif;
     margin: 15px 0 0 148px;
 }
 
@@ -149,6 +150,22 @@ header h1 {
     font-weight: 600;
     transform: scale(1.05);
 }
+
+
+#main-nav a:hover #you-are {
+    display: none;
+}
+
+#main-nav a #logout {
+    display: none;
+}
+
+#main-nav a:hover #logout {
+    display: inline-block;
+}
+
+#main-nav li a,
+
 
 #main-nav li.current a,
 #main-nav li.current a:hover {
@@ -172,6 +189,7 @@ header h1 {
 }
 
 #about-shop p {
+    font-family: "Podkova", Serif;
     font-size: 22px;
     line-height: 24px;
     font-weight: 400;
@@ -198,6 +216,11 @@ header h1 {
     width: 220px;
     height: 431px;
     background: url("img/index-image-1.png") no-repeat;
+}
+/* login */
+
+#login-form p {
+    margin-bottom: 10px;
 }
 
 /* footer */
