@@ -1,0 +1,70 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        CITADEL
+        {% endblock %}
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Podkova&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    {% block js %}
+        <script scr="{% static 'js/create_user.js' %}"></script>
+        <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% endblock %}
+</head>
+<body>
+<main id="page" class="innertube">
+        <header>
+            <h1>Клуб-магазин &quot;Цитадель&quot; </h1>
+            <div class="h-line"></div>
+            <div id="main-nav-menu">
+                <ul id="main-nav">
+                    <li class="{% if page == "index" %}current{% endif %}"><a href="{% url 'index' %}">Главная</a></li>
+                    <li class="{% if page == "catalog" %}current{% endif %}"><a href="">Каталог</a></li>
+                    <li class="{% if page == "about" %}current{% endif %}"><a href="">О нас</a></li>
+                    {% if not user.is_authenticated %}
+                        <li class="{% if page == "login_page" %}current{% endif %}"><a href="{% url 'login_page' %}">Войти</a></li>
+                    {% else %}
+                        <li ><a href="/user/logout/">
+                            <span id="you-are">Вы: {{ user.username }}</span>
+                            <span id="logout">Выйти</span>
+                        </a></li>
+                    {% endif %}
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="h-line-invert"></div>
+        </header>
+        <section id="content" class="clearfix">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <div class="clear"></div>
+        {% if errors %}
+            <script>
+                alert("Неверный логин и/или пароль");
+            </script>
+        {% endif %}
+
+    </main>
+
+    <footer class="clearfix">
+        <p id="copy">
+            Священная Инквизиция пристально следит за твоими деяниями <br>
+            &copy;2017 Все права защищены. Кравец Дмитрий
+        </p>
+    </footer>
+
+
+
+</body>
+</html>
