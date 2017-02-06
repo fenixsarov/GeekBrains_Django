@@ -1,37 +1,24 @@
 {% extends "base.html" %}
+
 {% block title %}
     Продвинутая админка
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script src="/static/js/create_user.js"></script>
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-md-6">
             Пользователи:
             <ul id="users">
-                {% include 'inc-users.html' %}
+                {% include 'inc-users_list.html' %}
             </ul>
         </div>
-        <form id="user_form" onclick="send_data({{ id }})">
-            {% csrf_token %}
-            <table>
-                {% for field in form %}
-                    <tr>
-                        <td>
-                            {{ field.label_tag }}
-                        </td>
-                        <td>
-                            <div>
-                                <ul>
-                                    {% for error in field.errors %}
-                                        <li class="error">error: {{ error }}</li>
-                                    {% endfor %}
-                                    {{ field }}
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-            <input type="submit" value="Редактировать пользователя">
-        </form>
     </div>
+    <form id="user_form">
+        {% include 'inc-registration_form.html' %}
+    </form>
+    <input type="submit" value="Редактировать пользователя" onclick="send_data()">
+
 {% endblock %}

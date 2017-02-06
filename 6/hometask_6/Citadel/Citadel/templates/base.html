@@ -15,8 +15,11 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
     <link rel="stylesheet" href="{% static 'main.css' %}">
-    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block js %}
+        <script scr="{% static 'js/create_user.js' %}"></script>
+        <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% endblock %}
 </head>
 <body>
 <main id="page" class="innertube">

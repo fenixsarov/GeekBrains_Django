@@ -18,15 +18,18 @@ from django.contrib import admin
 from Shop.views import *
 from administrationApp.views import *
 
-
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$', main, name='index'),
+]
+
+urlpatterns += [
     url(r'^user/login_page/$', login_page, name='login_page'),
     url(r'^user/login/$', login),
-    url(r'^user/logout/$', logout, name='logout'),
-    url(r'^user/registration/$', registration_low),
+    url(r'^user/logout/$', logout),
+    # url(r'^user/registration/$', registration_low),
     url(r'^user/registration-form/$', registration),
-    url(r'^adminka/$', admin_page),
-    url(r'^adminka/delete/user/(\d+)$', delete_user)
+    url(r'^admin/$', admin_page),
+    url(r'^admin/delete/user/(\d+)$', delete_user),
+    url(r'^admin/get_user_form/(\d+)$', get_user_form),
+    url(r'^admin/create/user/(\d+)$', create_user)
 ]
