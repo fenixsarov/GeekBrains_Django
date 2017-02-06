@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    Units
+{% endblock %}
+{% block content %}
+    <div class="row">
+    {% for unit in units %}
+        <div class="unit_container">
+                <div class="name">
+                    {{ gem.name }}
+                </div>
+                <div class="image">
+                    <img src="/static/img/{{ unit.image | default:"dfav.png" }}">
+                </div>
+                {{ unit.category.name }}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

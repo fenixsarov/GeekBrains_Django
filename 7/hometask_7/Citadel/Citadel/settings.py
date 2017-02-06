@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Citadel',
-    'administrationApp'
+    # 'Citadel',
+    'administrationApp',
+    'Shop'
 ]
 
 MIDDLEWARE = [

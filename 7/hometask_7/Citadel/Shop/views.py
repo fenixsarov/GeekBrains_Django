@@ -1,8 +1,9 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.contrib import auth
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .models import Unit, Category
 
 def main(request):
     page = 'index'
@@ -62,4 +63,39 @@ def registration_low(request):
         return HttpResponseRedirect("/")
     return render(request, "registration_low.html")
 
+def catalog(request):
+    page = 'catalog'
+    return render(request, 'catalog.html', {'page': page})
+
+def units(request, category_id):
+    units = Unit.objects.filter(category__id=category_id)
+    categories = Category.objects.all()
+    return render(request, 'units_page.html', {'categories': categories, 'units': units})
+
+def admin_units(request):
+    units = Unit.objects.all()
+    return render(request, 'admin_units.html', {'units': units})
+
+def admin_units_create(request):
+    if request.method == 'POST':
+        form = UnitsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/admin/units/')
+        context = {'form': form}
+        return render(request, 'admin_units_create.html', context)
+    context = {'form': UnitsForm()}
+    return render(request, 'admin_units_create.html', context)
+
+def admin_units_delete(request):
+    units = get_object_or_404(Unit, id=id)
+    units.delete()
+    return HttpResponseRedirect('/admin/units/')
+
+def admin_units_update(request, id):
+    pass
+
+def admin_units_details(request, id):
+    unit = get_object_or_404(Unit, id=id)
+    return render(request, 'admin_unit_detail.html', {'unit': unit})
 # Create your views here.

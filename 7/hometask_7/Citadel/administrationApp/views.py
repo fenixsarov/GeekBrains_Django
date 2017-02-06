@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .forms import MyRegistrationForm
 
+
 # from userManagementApp.forms import MyRegistrationForm, UserChangeForm
 from django.template import loader
 from django.template.context_processors import csrf

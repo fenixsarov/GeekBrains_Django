@@ -31,5 +31,16 @@ urlpatterns += [
     url(r'^admin/$', admin_page),
     url(r'^admin/delete/user/(\d+)$', delete_user),
     url(r'^admin/get_user_form/(\d+)$', get_user_form),
-    url(r'^admin/create/user/(\d+)$', create_user)
+    url(r'^admin/create/user/(\d+)$', create_user),
+
+]
+
+urlpatterns += [
+    url(r'^catalog/$', catalog, name='catalog'),
+    url(r'^units/(\d+)/$', units, name='units'),
+    url(r'admin/units/', admin_units, name='admin_units'),
+    url(r'^admin/create/units$', admin_units_create, name='units_create'),
+    url(r'^admin/delete/units/(\d+)$', admin_units_delete, name='units_delete'),
+    url(r'^admin/update/units/(\d+)$', admin_units_update, name='units_update'),
+    url(r'^admin/detail/units/(\d+)$', admin_units_detail, name='units_detail')
 ]
