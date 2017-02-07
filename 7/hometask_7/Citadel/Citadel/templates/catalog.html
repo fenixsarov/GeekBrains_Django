@@ -4,8 +4,11 @@
 {% endblock %}
 {% block content %}
     <div class="column-1">
-        Adeptus Astartes
+        <p>Adeptus Astartes</p>
+        {% for category in categories %}
 
+            <p><a href="{% url 'units' category.id %}">{{category.name}}</a></p>
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

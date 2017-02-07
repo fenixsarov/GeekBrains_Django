@@ -6,13 +6,13 @@
     <div class="row">
     {% for unit in units %}
         <div class="unit_container">
-                <div class="name">
-                    {{ gem.name }}
-                </div>
-                <div class="image">
-                    <img src="/static/img/{{ unit.image | default:"dfav.png" }}">
-                </div>
-                {{ unit.category.name }}
+            <div class="name">
+                {{ unit.name }}
+            </div>
+            <div class="image">
+                <img src="/static/img/{{ unit.image | default:"dfav.png" }}">
+            </div>
+            {{ unit.category.name }}
         </div>
     {% endfor %}
     </div>

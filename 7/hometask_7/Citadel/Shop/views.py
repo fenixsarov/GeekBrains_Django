@@ -1,13 +1,14 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from .models import Unit, Category
+from .models import Unit, Category, Contact
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def main(request):
     page = 'index'
-    return render(request, "index.html", {"page": page})
+    return render(request, 'index.html', {"page": page})
 
 def login_page(request):
     page = 'login_page'
@@ -65,37 +66,25 @@ def registration_low(request):
 
 def catalog(request):
     page = 'catalog'
-    return render(request, 'catalog.html', {'page': page})
+    categories = Category.objects.all()
+    return render(request, 'catalog.html', {'page': page, 'categories': categories})
 
 def units(request, category_id):
-    units = Unit.objects.filter(category__id=category_id)
+    unitss = Unit.objects.filter(category__id=category_id)
     categories = Category.objects.all()
-    return render(request, 'units_page.html', {'categories': categories, 'units': units})
+    return render(request, 'units_page.html', {'categories': categories, 'units': unitss})
 
-def admin_units(request):
-    units = Unit.objects.all()
-    return render(request, 'admin_units.html', {'units': units})
-
-def admin_units_create(request):
-    if request.method == 'POST':
-        form = UnitsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/admin/units/')
-        context = {'form': form}
-        return render(request, 'admin_units_create.html', context)
-    context = {'form': UnitsForm()}
-    return render(request, 'admin_units_create.html', context)
-
-def admin_units_delete(request):
-    units = get_object_or_404(Unit, id=id)
-    units.delete()
-    return HttpResponseRedirect('/admin/units/')
-
-def admin_units_update(request, id):
-    pass
-
-def admin_units_details(request, id):
-    unit = get_object_or_404(Unit, id=id)
-    return render(request, 'admin_unit_detail.html', {'unit': unit})
+def listing(request):
+    contact_list = Contact.objects.all()
+    #25 контактов
+    paginator = Paginator(contact_list, 5)
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # Первую страницу вывести
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = paginator.page(paginator.num_pages)
+    return render(request, 'list.html', {'contacts': contacts})
 # Create your views here.

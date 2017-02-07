@@ -25,12 +25,12 @@
 <main id="page" class="innertube">
         <header>
             <h1>Клуб-магазин &quot;Цитадель&quot; </h1>
-            <div class="h-line"></div>
+{#            <div class="h-line"></div>#}
             <div id="main-nav-menu">
                 <ul id="main-nav">
                     <li class="{% if page == "index" %}current{% endif %}"><a href="{% url 'index' %}">Главная</a></li>
                     <li class="{% if page == "catalog" %}current{% endif %}"><a href="{% url 'catalog' %}">Каталог</a></li>
-                    <li class="{% if page == "about" %}current{% endif %}"><a href="">О нас</a></li>
+                    <li class="{% if page == "contacts" %}current{% endif %}"><a href="{% url 'contacts' %}">Контакты</a></li>
                     {% if not user.is_authenticated %}
                         <li class="{% if page == "login_page" %}current{% endif %}"><a href="{% url 'login_page' %}">Войти</a></li>
                     {% else %}

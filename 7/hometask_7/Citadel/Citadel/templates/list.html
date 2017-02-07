@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    Контакты
+{% endblock %}
+{% block content %}
+    {% for contact in contacts %}
+        {{ contact.full_name|upper }} <br>
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if contacts.has_previous %}
+                <a href="?page={{ contacts.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+            <span class="current">
+                Страница {{ contacts.number }} из {{ contacts.paginator.num_pages }}
+            </span>
+            {% if contacts.has_next %}
+                <a href="?page={{ contacts.next_page_number }}">Следующая</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
