@@ -12,7 +12,8 @@
             <div class="image">
                 <img src="/static/img/{{ unit.image | default:"dfav.png" }}">
             </div>
-            {{ unit.category.name }}
+            <p>{{ unit.description }}</p>
+            <br>
         </div>
     {% endfor %}
     </div>

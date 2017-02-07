@@ -167,11 +167,15 @@ header h1 {
 #main-nav li a,
 
 
-#main-nav li.current a,
-#main-nav li.current a:hover {
+#main-nav li.current a
+{
     color: #3a3a3a;
     font-weight: 600;
-    transform: scale(1.0);
+}
+
+#main-nav li.current a:hover {
+    font-weight: 800;
+    transform: scale(1.05);
 }
 
 /* content */
