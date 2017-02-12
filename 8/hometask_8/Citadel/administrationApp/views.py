@@ -8,6 +8,11 @@ from django.contrib.auth.decorators import user_passes_test
 from Shop.forms import UnitsForm
 from Shop.models import Unit, Category
 
+# Импортируем классы, на основе которых буду переводить вьюху на ClassBasedView-методологию
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def admin_page(request):
@@ -52,49 +57,68 @@ def get_user_form(request, user_id):
         return JsonResponse(data)
     raise Http404
 
-@user_passes_test(lambda u: u.is_superuser)
-def admin_units(request):
-    units = Unit.objects.all()
-    print('admin_units page!')
-    return render(request, 'admin_units.html', {'units': units})
+# @user_passes_test(lambda u: u.is_superuser)
+# def admin_units(request):
+#     units = Unit.objects.all()
+#     return render(request, 'admin_units.html', {'units': units})
+
+class UnitsListView(ListView):
+    model = Unit
+    template_name = 'admin_units.html'
+    paginate_by = 2
+
+# def admin_units_create(request):
+#     if request.method == 'POST':
+#         form = UnitsForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect('/admin/units/')
+#         context = {'form': form}
+#         return render(request, 'admin_units_create.html', context)
+#     context = {'form': UnitsForm()}
+#     return render(request, 'admin_units_create.html', context)
+
+class UnitsCreateView(CreateView):
+    model = Unit
+    template_name = 'admin_units_create.html'
+    success_url = '/admin/units/'
+    fields = ('__all__')
 
 
-def admin_units_create(request):
-    print('request creates')
-    if request.method == 'POST':
-        form = UnitsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/admin/units/')
-        context = {'form': form}
-        return render(request, 'admin_units_create.html', context)
-    context = {'form': UnitsForm()}
-    return render(request, 'admin_units_create.html', context)
+# def admin_units_delete(request):
+#     units = get_object_or_404(Unit, id=id)
+#     units.delete()
+#     return HttpResponseRedirect('/admin/units/')
+
+class UnitsDeleteView(DeleteView):
+    model = Unit
+    success_url = '/admin/units/'
+    template_name = 'confirm_delete.html'
 
 
-def admin_units_delete(request):
-    print('request delete')
-    units = get_object_or_404(Unit, id=id)
-    units.delete()
-    return HttpResponseRedirect('/admin/units/')
+
+# def admin_units_update(request, id):
+#     unit = get_object_or_404(Unit, id=id)
+#     if request.method == 'POST':
+#         form = UnitsForm(request.POST, instance=unit)
+#         if form.is_valid():
+#             unit.save()
+#             return HttpResponseRedirect('/admin/units/')
+#         context = {'form': form}
+#         return render(request, 'admin_units_update.html', context)
+#     context = {'form': UnitsForm(instance=unit)}
+#     return render(request, 'admin_units_update.html', context)
+
+class UnitsUpdateView(UpdateView):
+    pass
 
 
-def admin_units_update(request, id):
-    print("Update")
-    unit = get_object_or_404(Unit, id=id)
-    if request.method == 'POST':
-        form = UnitsForm(request.POST, instance=unit)
-        if form.is_valid():
-            unit.save()
-            return HttpResponseRedirect('/admin/units/')
-        context = {'form': form}
-        return render(request, 'admin_units_update.html', context)
-    context = {'form': UnitsForm(instance=unit)}
-    return render(request, 'admin_units_update.html', context)
+# def admin_units_detail(request, id):
+#     unit = get_object_or_404(Unit, id=id)
+#     return render(request, 'admin_unit_detail.html', {'unit': unit})
 
-
-def admin_units_detail(request, id):
-    unit = get_object_or_404(Unit, id=id)
-    return render(request, 'admin_unit_detail.html', {'unit': unit})
+class UnitsDetailView(DetailView):
+    model = Unit
+    template_name = 'admin_unit_detail.html'
 
 # Create your views here.
