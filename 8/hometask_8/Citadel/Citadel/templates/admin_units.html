@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+    Админка юнитов
+{% endblock %}
+{% block content %}
+    {% for unit in units %}
+        <p><a href="{% url 'units_detail' unit.id %}">{{unit.name}}</a></p>
+        <p><a href="{% url 'units_delete' unit.id %}">Удалить</a></p>
+        <p><a href="{% url 'units_update' unit.id %}">Редактировать</a></p>
+    {% endfor %}
+    <a href="{% url 'units_create' %}">Добавить</a>
+{% endblock %}

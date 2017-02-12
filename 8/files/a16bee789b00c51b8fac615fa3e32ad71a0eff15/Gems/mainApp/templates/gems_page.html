@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load my_tags %}
+{% block title %}
+    Gems
+{% endblock %}
+{% block content %}
+    <div class="row">
+        {% for gem in gems %}
+            <div class="gem_container">
+                <div class="name">
+                    {{ gem.name | through_one }}
+                </div>
+                <div class="image">
+                    <img src="/static/images/{{ gem.image | default:"dfav.png" }}">
+                </div>
+                {{ gem.category.name }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

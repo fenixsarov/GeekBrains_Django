@@ -1,0 +1,254 @@
+/* main styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/*@font-face {*/
+    /*font-family: "B52";*/
+    /*src: url("static/fonts/b52.ttf");*/
+    /*font-weight: 400;*/
+    /*font-style: normal;*/
+    /*!*text-rendering: optimizeLegibility;*!*/
+/*}*/
+
+body {
+    background: #a5a5a5;
+    line-height: 1;
+
+    color:#3a3a3a;
+    font-family: "Podkova", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+a img {
+    border: none;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 22px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Russo One", sans-serif;
+    /*text-rendering: optimizeLegibility;*/
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+main#page {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+    /*background: #d3d3d3;*/
+    /*background: url("img/bg.png") no-repeat;*/
+    background: url("img/bg-with-border-7ed-2-right.png") no-repeat;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.innertube{
+    min-height: 100%;
+}
+
+header {
+    margin: 0 0 0 0;
+    position: relative;
+}
+
+header h1 {
+    margin-left: 180px;
+    padding-top: 95px;
+    font-family: "Russo One", Arial, sans-serif;
+}
+
+/*.h-line {*/
+    /*background: url("img/h-double-red-line.png") no-repeat;*/
+    /*height: 26px;*/
+    /*margin: 5px 0 0 130px;*/
+/*}*/
+
+.h-line-invert {
+    background: url("img/h-double-red-line.png") no-repeat;
+    height: 26px;
+    margin: 70px 0 0 130px;
+}
+
+/* menu */
+#main-nav-menu {
+    width: 960px;
+    height: 35px;
+    position: absolute;
+    /* left: -50px; */
+
+    margin: -16px 0 0 ;
+}
+
+#main-nav {
+    float: left;
+    font-size: 20px;
+    font-family: "Roboto Slab", Arial, serif;
+    margin: 60px 0 0 100px;
+}
+
+#main-nav li {
+    float: left;
+    padding-left: 60px;
+}
+
+#main-nav li a {
+    display: block;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+#main-nav li a:hover {
+    color: #3a3a3a;
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+
+#main-nav a:hover #you-are {
+    display: none;
+}
+
+#main-nav a #logout {
+    display: none;
+}
+
+#main-nav a:hover #logout {
+    display: inline-block;
+}
+
+#main-nav li a,
+
+
+#main-nav li.current a
+{
+    color: #3a3a3a;
+    font-weight: 600;
+}
+
+#main-nav li.current a:hover {
+    font-weight: 800;
+    transform: scale(1.05);
+}
+
+/* content */
+#content {
+    padding-bottom: 100px;
+    margin: 50px 0 0 120px;
+    height: auto;
+}
+
+/* index */
+
+.column-1 {
+    width: 480px;
+    float: left;
+}
+
+#about-shop p {
+    font-family: "Podkova", Serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.red-line:first-letter {
+    font-size: 36px;
+    color: darkred;
+}
+
+#index-slider {
+    float:left;
+    width: 480px;
+    height:250px;
+    margin-top: 30px;
+    text-align: center;
+    background: darkgray;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#index-image-1 {
+    float:left;
+    margin-left: 20px;
+    width: 220px;
+    height: 431px;
+    background: url("img/index-image-1.png") no-repeat;
+}
+/* login */
+
+#login-form p {
+    margin-bottom: 10px;
+}
+
+/* reistration */
+#reg-form p,
+#reg-form button{
+    margin-top: 20px;
+}
+
+/* footer */
+footer {
+    margin: 0 auto ;
+    margin-top: -128px;
+    height: 128px;
+    width: 960px;
+    color: #fff;
+    background: url("img/bg-footer-7ed.png") no-repeat;
+}
+
+footer #copy {
+    float: left;
+    color: #000;
+    margin-top: 50px;
+    padding-left: 255px;
+    line-height: 16px;
+    text-align: center;
+}
+

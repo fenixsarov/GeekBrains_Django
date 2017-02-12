@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Units
+{% endblock %}
+{% block content %}
+    <div class="row">
+    {% for unit in units %}
+        <div class="unit_container">
+            <div class="name">
+                {{ unit.name }}
+            </div>
+            <div class="image">
+                <img src="/static/img/{{ unit.image | default:"dfav.png" }}">
+            </div>
+            <p>{{ unit.description }}</p>
+            <br>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

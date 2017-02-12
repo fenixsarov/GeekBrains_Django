@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+    Каталог
+{% endblock %}
+{% block content %}
+    <div class="column-1">
+        <p>Adeptus Astartes</p>
+        {% for category in categories %}
+
+            <p><a href="{% url 'units' category.id %}">{{category.name}}</a></p>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
