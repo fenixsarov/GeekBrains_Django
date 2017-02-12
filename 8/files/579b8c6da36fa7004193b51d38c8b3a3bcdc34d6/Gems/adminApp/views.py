@@ -10,7 +10,7 @@ from mainApp.models import Gem, Category
 
 # http://djbook.ru/rel1.8/topics/auth/default.html - документация
 # доступ у админке только суперпользователю
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
 def admin_page(request):
     users = User.objects.all()
     user_form = MyRegistrationForm()

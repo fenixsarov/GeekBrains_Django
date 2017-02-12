@@ -1,20 +1,19 @@
-from django.contrib import auth
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
-from django.http import Http404, JsonResponse
 from django.contrib.auth.models import User
-
 from .forms import MyRegistrationForm
+from django.http import Http404, JsonResponse
+from django.template import loader
+from django.template.context_processors import csrf
+from django.contrib.auth.decorators import user_passes_test
 from Shop.forms import UnitsForm
 from Shop.models import Unit, Category
 
 
-# from userManagementApp.forms import MyRegistrationForm, UserChangeForm
-from django.template import loader
-from django.template.context_processors import csrf
-
+# @user_passes_test(lambda u: u.is_superuser)
 def admin_page(request):
     users = User.objects.all()
     return render(request, 'admin_page.html', {'users': users})
+
 
 def delete_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
@@ -40,6 +39,7 @@ def create_user(request, user_id=None):
             return JsonResponse({'errors': errors})
     raise Http404
 
+
 def get_user_form(request, user_id):
     if request.is_ajax():
         user = get_object_or_404(User, id=user_id)
@@ -51,11 +51,15 @@ def get_user_form(request, user_id):
         return JsonResponse(data)
     raise Http404
 
+
 def admin_units(request):
     units = Unit.objects.all()
+    print('admin_units page!')
     return render(request, 'admin_units.html', {'units': units})
 
+
 def admin_units_create(request):
+    print('request creates')
     if request.method == 'POST':
         form = UnitsForm(request.POST)
         if form.is_valid():
@@ -66,12 +70,16 @@ def admin_units_create(request):
     context = {'form': UnitsForm()}
     return render(request, 'admin_units_create.html', context)
 
+
 def admin_units_delete(request):
+    print('request delete')
     units = get_object_or_404(Unit, id=id)
     units.delete()
     return HttpResponseRedirect('/admin/units/')
 
+
 def admin_units_update(request, id):
+    print("Update")
     unit = get_object_or_404(Unit, id=id)
     if request.method == 'POST':
         form = UnitsForm(request.POST, instance=unit)
@@ -82,7 +90,6 @@ def admin_units_update(request, id):
         return render(request, 'admin_units_update.html', context)
     context = {'form': UnitsForm(instance=unit)}
     return render(request, 'admin_units_update.html', context)
-
 
 
 def admin_units_detail(request, id):
