@@ -9,10 +9,11 @@ from Shop.forms import UnitsForm
 from Shop.models import Unit, Category
 
 
-# @user_passes_test(lambda u: u.is_superuser)
+@user_passes_test(lambda u: u.is_superuser)
 def admin_page(request):
     users = User.objects.all()
-    return render(request, 'admin_page.html', {'users': users})
+    user_form = MyRegistrationForm
+    return render(request, 'admin_page.html', {'users': users, 'form': user_form})
 
 
 def delete_user(request, user_id):
@@ -51,7 +52,7 @@ def get_user_form(request, user_id):
         return JsonResponse(data)
     raise Http404
 
-
+@user_passes_test(lambda u: u.is_superuser)
 def admin_units(request):
     units = Unit.objects.all()
     print('admin_units page!')
